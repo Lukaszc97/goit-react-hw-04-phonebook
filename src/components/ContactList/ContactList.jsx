@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ContactList.module.css'
+import styles from './ContactList.module.css';
+
 const Contact = ({ id, name, number, onDeleteContact }) => (
-  <li className={styles.contactItem}> {/* Użyj zmiennej styles */}
+  <li className={styles.contactItem}>
     {name}: {number}
     <button className={styles.deleteButton} onClick={() => onDeleteContact(id)}>Delete</button>
   </li>
 );
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul className={styles.contactList}> {/* Użyj zmiennej styles */}
+  <ul className={styles.contactList}>
     {contacts.map(contact => (
       <Contact
         key={contact.id}
@@ -19,6 +20,7 @@ const ContactList = ({ contacts, onDeleteContact }) => (
     ))}
   </ul>
 );
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -29,4 +31,5 @@ ContactList.propTypes = {
   ).isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
+
 export default ContactList;

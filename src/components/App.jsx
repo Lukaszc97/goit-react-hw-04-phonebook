@@ -13,11 +13,11 @@ function App() {
     if (storedContacts) {
       setContacts(JSON.parse(storedContacts));
     }
-  }, []); // Efekt uruchamia się tylko raz po pierwszym renderowaniu
+  }, []); 
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]); // Efekt uruchamia się po zmianie contacts
+  }, [contacts]);
 
   const addContact = (name, number) => {
     const newContact = { id: nanoid(), name, number };
