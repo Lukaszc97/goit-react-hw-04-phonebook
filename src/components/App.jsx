@@ -32,6 +32,9 @@ function App() {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
     );
+    if (contacts.length === 1) {
+      localStorage.removeItem('contacts');
+    }
   };
 
   const filteredContacts = contacts.filter(contact =>
