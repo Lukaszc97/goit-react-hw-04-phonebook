@@ -10,15 +10,21 @@ const Contact = ({ id, name, number, onDeleteContact }) => (
 );
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul className={styles.contactList}>
-    {contacts.map(contact => (
-      <Contact
-        key={contact.id}
-        {...contact}
-        onDeleteContact={onDeleteContact}
-      />
-    ))}
-  </ul>
+  <div>
+    {contacts.length > 0 ? (
+      <ul className={styles.contactList}>
+        {contacts.map(contact => (
+          <Contact
+            key={contact.id}
+            {...contact}
+            onDeleteContact={onDeleteContact}
+          />
+        ))}
+      </ul>
+    ) : (
+      <p>No contacts to display.</p>
+    )}
+  </div>
 );
 
 ContactList.propTypes = {
