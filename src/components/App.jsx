@@ -31,11 +31,15 @@ function App() {
   const handleDeleteContact = id => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
+      
     );
+  
     if (contacts.length === 1) {
-      localStorage.removeItem('contacts');
+      localStorage.removeItem('contacts'); 
+      console.log('Last contact removed. localStorage entry deleted.');
     }
   };
+  
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
